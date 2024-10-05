@@ -379,7 +379,7 @@ document.getElementById('onRing').addEventListener('click', function () {
         document.getElementById('onText').setAttribute('fill', 'rgb(23, 137, 242)');
         document.getElementById('onDot').setAttribute('r',14);
         setTimeout(() => {
-                window.location.href = "./ilikeu/To-Tinh-Crush/index.html";
+                window.location.href = "./ilikeu/index.html";
         }, 1000);
 });
 
