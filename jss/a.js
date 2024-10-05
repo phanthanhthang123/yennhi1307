@@ -1,25 +1,25 @@
 // import { gsap } from "gsap";
 
 
-gsap.config({trialWarn: false});
+gsap.config({ trialWarn: false });
 
 let select = s => document.querySelector(s),
 
-                q = gsap.utils.selector(document),
+        q = gsap.utils.selector(document),
 
-                toArray = s => gsap.utils.toArray(s),
+        toArray = s => gsap.utils.toArray(s),
 
-                mainSVG = select('#mainSVG'),
+        mainSVG = select('#mainSVG'),
 
-                toggle = select('#offRing'),
+        toggle = select('#offRing'),
 
-                style = getComputedStyle(document.body),
+        style = getComputedStyle(document.body),
 
-                uiGrey = style.getPropertyValue('--ui-grey'),
+        uiGrey = style.getPropertyValue('--ui-grey'),
 
-                uiBlue = style.getPropertyValue('--ui-blue')
+        uiBlue = style.getPropertyValue('--ui-blue')
 
-                
+
 
 
 gsap.set('svg', {
@@ -30,7 +30,7 @@ gsap.set('svg', {
 
 function setToggledEnabled(state) {
 
-        if(state) {
+        if (state) {
 
                 toggle.addEventListener('click', click);
 
@@ -59,309 +59,309 @@ let tl = gsap.timeline({
 
         onComplete: setToggledEnabled,
 
-        onCompleteParams: [true]        
+        onCompleteParams: [true]
 
 });
 
 tl.add('offSelected')
 
-.to('#onDot', {
+        .to('#onDot', {
 
-        attr: {
+                attr: {
 
-                r: 0
+                        r: 0
 
-        },
+                },
 
-        //ease: 'elastic(0.6, 0.4)'
+                //ease: 'elastic(0.6, 0.4)'
 
-}, 'offSelected')
+        }, 'offSelected')
 
-.to('#onRing', {
+        .to('#onRing', {
 
-        stroke: uiGrey
+                stroke: uiGrey
 
-}, 'offSelected')
+        }, 'offSelected')
 
-.to('#onText', {
+        .to('#onText', {
 
-        fill: uiGrey
+                fill: uiGrey
 
-}, 'offSelected')
+        }, 'offSelected')
 
 
-.to('#offDot', {
+        .to('#offDot', {
 
-        attr: {
+                attr: {
 
-                r: 14
+                        r: 14
 
-        },
+                },
 
-        duration: 0.6,
+                duration: 0.6,
 
-        ease: 'elastic(0.6, 0.4)'
+                ease: 'elastic(0.6, 0.4)'
 
-}, 'offSelected')
+        }, 'offSelected')
 
-.to('#offRing', {
+        .to('#offRing', {
 
-        stroke: uiBlue
+                stroke: uiBlue
 
-}, 'offSelected')
+        }, 'offSelected')
 
-.to('#offText', {
+        .to('#offText', {
 
-        fill: uiBlue
+                fill: uiBlue
 
-}, 'offSelected')
+        }, 'offSelected')
 
 
 
-.add('handIn', '+=1')
+        .add('handIn', '+=1')
 
-.from(['#allRobotHands', '#robotThumb'], {
+        .from(['#allRobotHands', '#robotThumb'], {
 
-        x: 60,
+                x: 60,
 
-        y: -180,
+                y: -180,
 
-        duration: 0.4,
+                duration: 0.4,
 
-        ease: 'back(0.3)'
+                ease: 'back(0.3)'
 
-}, 'handIn')
+        }, 'handIn')
 
-.from('#robotThumb', {
+        .from('#robotThumb', {
 
-        rotation: -20,
+                rotation: -20,
 
-        transformOrigin: '20% 20%',
+                transformOrigin: '20% 20%',
 
-        duration: 0.4,
+                duration: 0.4,
 
-        ease: 'expo.inOut'
+                ease: 'expo.inOut'
 
-}, 'handIn+=0.1')
+        }, 'handIn+=0.1')
 
-.from('#robotIndexFinger', {
+        .from('#robotIndexFinger', {
 
-        rotation: 15,
+                rotation: 15,
 
-        transformOrigin: '100% 0%',
+                transformOrigin: '100% 0%',
 
-        duration: 0.4,
+                duration: 0.4,
 
-        ease: 'expo.inOut'
+                ease: 'expo.inOut'
 
-}, 'handIn+=0.1')
+        }, 'handIn+=0.1')
 
 
-.add('handAcross')
+        .add('handAcross')
 
-.to(['#allRobotHands', '#robotThumb'], {
+        .to(['#allRobotHands', '#robotThumb'], {
 
-        x: 120,
+                x: 120,
 
-        y: 0,
+                y: 0,
 
-        ease: 'back.inOut(0.53)'
+                ease: 'back.inOut(0.53)'
 
-}, 'handAcross')
+        }, 'handAcross')
 
-.to(['#allRobotHands', '#robotThumb, #offDot'], {
+        .to(['#allRobotHands', '#robotThumb, #offDot'], {
 
-        y: '-=50',        
+                y: '-=50',
 
-        duration: 0.15,
+                duration: 0.15,
 
-        ease: 'sine.in'
+                ease: 'sine.in'
 
-}, 'handAcross')
+        }, 'handAcross')
 
-.to(['#allRobotHands', '#robotThumb, #offDot'], {
+        .to(['#allRobotHands', '#robotThumb, #offDot'], {
 
-        y: '+=50',                
+                y: '+=50',
 
-        duration: 0.15,
+                duration: 0.15,
 
-        ease: 'sine'
+                ease: 'sine'
 
-}, 'handAcross+=0.15')
+        }, 'handAcross+=0.15')
 
-.to('#offDot', {
+        .to('#offDot', {
 
-        x: 120,
+                x: 120,
 
-        ease: 'back.inOut(0.3)'
+                ease: 'back.inOut(0.3)'
 
-}, 'handAcross')
+        }, 'handAcross')
 
-.to('#robotThumb', {
+        .to('#robotThumb', {
 
-        rotation: -10,
+                rotation: -10,
 
-        transformOrigin: '20% 20%',
+                transformOrigin: '20% 20%',
 
-        duration: 0.4,
+                duration: 0.4,
 
-        ease: 'expo.inOut'
+                ease: 'expo.inOut'
 
-}, 'handAcross+=0.3')
+        }, 'handAcross+=0.3')
 
-.to('#robotIndexFinger', {
+        .to('#robotIndexFinger', {
 
-        rotation: 5,
+                rotation: 5,
 
-        transformOrigin: '100% 0%',
+                transformOrigin: '100% 0%',
 
-        duration: 0.4,
+                duration: 0.4,
 
-        ease: 'expo.inOut'
+                ease: 'expo.inOut'
 
-}, 'handAcross+=0.3')
+        }, 'handAcross+=0.3')
 
-.to(['#allRobotHands', '#robotThumb'], {
+        .to(['#allRobotHands', '#robotThumb'], {
 
-        duration: 0.4,
+                duration: 0.4,
 
-        y: '-=20',
+                y: '-=20',
 
-        ease: 'sine.inOut'
+                ease: 'sine.inOut'
 
-}, 'handAcross+=0.3')
+        }, 'handAcross+=0.3')
 
-.add('hornHands', '+=0.35')
+        .add('hornHands', '+=0.35')
 
-.to(['#allRobotHands', '#robotThumb'], {
+        .to(['#allRobotHands', '#robotThumb'], {
 
-        duration: 0.166,
+                duration: 0.166,
 
-        y: '+=20'
+                y: '+=20'
 
-},'hornHands')
+        }, 'hornHands')
 
-.to(['#robotHand', '#robotHandHorns','#robotThumb'], {
+        .to(['#robotHand', '#robotHandHorns', '#robotThumb'], {
 
-        opacity: gsap.utils.wrap([0, 1, 0]),
+                opacity: gsap.utils.wrap([0, 1, 0]),
 
-        duration: 0.06,
+                duration: 0.06,
 
-}, 'hornHands')
+        }, 'hornHands')
 
-.to(['#allRobotHands'], {
+        .to(['#allRobotHands'], {
 
-        rotation: '+=12',
+                rotation: '+=12',
 
-        //scale:1.1,
+                //scale:1.1,
 
-        transformOrigin: '80% 30%',
+                transformOrigin: '80% 30%',
 
-        //repeat: 9,
+                //repeat: 9,
 
-        //yoyo: true,
+                //yoyo: true,
 
-        duration: 0.08,
+                duration: 0.08,
 
-        ease: 'sine.inOut'
+                ease: 'sine.inOut'
 
-}, 'hornHands')
+        }, 'hornHands')
 
 
-.to(['#allRobotHands'], {
+        .to(['#allRobotHands'], {
 
-        rotation: '-=12',
+                rotation: '-=12',
 
-        scale:1.1,
+                scale: 1.1,
 
-        transformOrigin: '100% 30%',
+                transformOrigin: '100% 30%',
 
-        repeat: 9,
+                repeat: 9,
 
-        yoyo: true,
+                yoyo: true,
 
-        duration: 0.08,
+                duration: 0.08,
 
-        ease: 'sine.inOut'
+                ease: 'sine.inOut'
 
-}, 'hornHands+=0.166')
+        }, 'hornHands+=0.166')
 
-.to('#robotThumb', {
+        .to('#robotThumb', {
 
-        rotation: 20,
+                rotation: 20,
 
-        scaleY: 0.75,
+                scaleY: 0.75,
 
-        transformOrigin: '20% 20%',
+                transformOrigin: '20% 20%',
 
-        duration: 0.1,
+                duration: 0.1,
 
-        ease: 'expo.in'
+                ease: 'expo.in'
 
-}, 'hornHands-=0.1')
+        }, 'hornHands-=0.1')
 
 
-.add('handOut', '+=0')
+        .add('handOut', '+=0')
 
-.to(['#allRobotHands', '#robotThumb'], {
+        .to(['#allRobotHands', '#robotThumb'], {
 
-        x: 160,
+                x: 160,
 
-        y: -200,
+                y: -200,
 
-        ease: 'sine.in'
+                ease: 'sine.in'
 
-}, 'handOut')
+        }, 'handOut')
 
-.to('#allRobotHands', {
+        .to('#allRobotHands', {
 
-        //rotation: -45,
+                //rotation: -45,
 
-        ease: 'sine'
+                ease: 'sine'
 
-}, 'handOut')
+        }, 'handOut')
 
 
-.to('#onRing', {
+        .to('#onRing', {
 
-        stroke: uiBlue
+                stroke: uiBlue
 
-}, 'hornHands-=0.5')
+        }, 'hornHands-=0.5')
 
-.to('#onText', {
+        .to('#onText', {
 
-        fill: uiBlue
+                fill: uiBlue
 
-}, 'hornHands-=0.5')
+        }, 'hornHands-=0.5')
 
 
 
-.to('#offRing', {
+        .to('#offRing', {
 
-        stroke: uiGrey
+                stroke: uiGrey
 
-}, 'hornHands-=0.5')
+        }, 'hornHands-=0.5')
 
-.to('#offText', {
+        .to('#offText', {
 
-        fill: uiGrey
+                fill: uiGrey
 
-}, 'hornHands-=0.5')
+        }, 'hornHands-=0.5')
 
-.set(['#onDot', '#offDot'], {
+        .set(['#onDot', '#offDot'], {
 
-        attr: {
+                attr: {
 
-                r: gsap.utils.wrap([14, 0])
+                        r: gsap.utils.wrap([14, 0])
 
-        },
+                },
 
-        x: 0
+                x: 0
 
-}, 'handOut')
+        }, 'handOut')
 
 
-function click (e) {
+function click(e) {
 
         setToggledEnabled(false)
 
@@ -375,5 +375,10 @@ function click (e) {
 
 }
 
+document.getElementById('onRing').addEventListener('click', function () {
+        document.getElementById('onText').setAttribute('fill', 'rgb(23, 137, 242)');
+        document.getElementById('onDot').setAttribute('r',14);
+        alert("i like you too");
+});
 
 setToggledEnabled(true)

@@ -39,8 +39,8 @@ hitTl.fromTo('#hitLines line', { drawSVG: '0% 0%' }, { drawSVG: '0% 50%', ease: 
     .to('#hitLines line', { drawSVG: '60% 80%', ease: 'none' })
     .to('#hitLines line', { drawSVG: '100% 100%', ease: 'power1.out' });
 
+    // tl.timeScale(10); // Tăng tốc độ lên gấp đôi
 var tl = gsap.timeline({ paused: false, repeat: -1 }).timeScale(3);
-tl.timeScale(3); // Tăng tốc độ lên gấp đôi
 
 tl.from(emojiContainer, { duration: 0.7, y: -100, ease: 'power1.in' })
     .from(emojiContainer, { duration: 0.7, scaleX: scale / 1.2, ease: 'power3.in' }, 0)
@@ -61,3 +61,4 @@ function onRepeat() {
     count = (count++ === emojiArr.length - 1) ? 0 : count;
     emoji.textContent = emojiArr[count];
 }
+
