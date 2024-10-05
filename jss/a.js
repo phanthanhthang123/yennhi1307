@@ -378,7 +378,9 @@ function click(e) {
 document.getElementById('onRing').addEventListener('click', function () {
         document.getElementById('onText').setAttribute('fill', 'rgb(23, 137, 242)');
         document.getElementById('onDot').setAttribute('r',14);
-        alert("i like you too");
+        setTimeout(() => {
+                window.location.href = "./ilikeu/To-Tinh-Crush/index.html";
+        }, 1000);
 });
 
 setToggledEnabled(true)
