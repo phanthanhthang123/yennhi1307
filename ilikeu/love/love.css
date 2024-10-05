@@ -700,5 +700,22 @@ body{
     width: 100%;
 }
 
+@media (max-width: 767px){
+    .formInput{
+        width: 60%;
+    }
+    .giftbox img {
+        width: 50%;
+    }
+    .boxCar img {
+        width: 300px;
+        margin-left: -95px;
+    }
+    .giftbox .img {
+        height: 280px;
+        margin-left: -36px;
+        width: 256px;
+    }
+}
 
 
